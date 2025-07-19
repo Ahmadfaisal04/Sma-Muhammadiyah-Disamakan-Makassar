@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMA Muhammadiyah Makassar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar-nav .nav-link.active,
+      .navbar-nav .nav-link:focus,
+      .navbar-nav .nav-link:hover {
+        color: #f7ac0b !important;
+      }
+      .navbar-nav .dropdown-menu .dropdown-item:focus,
+      .navbar-nav .dropdown-menu .dropdown-item:hover,
+      .navbar-nav .dropdown-menu .dropdown-item.active {
+        color: #f7ac0b !important;
+        background-color: transparent;
+      }
+      .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+      }
+      .dropdown-submenu {
+        position: relative;
+      }
+      .navbar-logo {
+        filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff)
+          drop-shadow(0 0 6px #fff);
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #294b29"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+          <img
+            src="../../../image/logo.png"
+            alt="Logo"
+            width="50"
+            height="50"
+            class="me-2 navbar-logo"
+          />
+          SMA Muhammadiyah
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../../../index.html"
+                >Beranda</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="profilDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Profil
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="profilDropdown">
+                <li>
+                  <a class="dropdown-item" href="../../profil/visi-misi.html"
+                    >Visi & Misi</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../../profil/sejarah.html"
+                    >Sejarah</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../../profil/guru-staff.html"
+                    >Guru & Staff</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="kurikulumDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Kurikulum
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="kurikulumDropdown">
+                <li>
+                  <a class="dropdown-item" href="../../kurikulum/ipa.html"
+                    >IPA</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../../kurikulum/ips.html"
+                    >IPS</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../../kurikulum/bahasa.html"
+                    >Bahasa</a
+                  >
+                </li>
+              </ul>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                id="kesiswaanDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Kesiswaan
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="kesiswaanDropdown">
+                <li class="dropdown-submenu position-relative">
+                  <a
+                    class="dropdown-item dropdown-toggle"
+                    href="#"
+                    id="ekstrakurikulerDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Ekstrakurikuler
+                  </a>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="ekstrakurikulerDropdown"
+                    style="left: 100%; top: 0"
+                  >
+                  
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="seni.html"
+                        >Seni Tari</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="futsal.html"
+                        >Futsal</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu position-relative">
+                  <a
+                    class="dropdown-item dropdown-toggle"
+                    href="#"
+                    id="organisasiDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Organisasi
+                  </a>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="organisasiDropdown"
+                    style="left: 100%; top: 0"
+                  >
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="../organisasi/ipm.html"
+                        >Ikatan Pelajar Muhammadiyah</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="../organisasi/hw.html"
+                        >Hisbul Wathan</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="../organisasi/tapaksuci.html"
+                        >Tapak Suci</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="../prestasi.html"
+                    >Prestasi</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../info-ppdb.html">Info PPDB</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../../kontak.html">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Carousel Header with Crossfade -->
+
+    <!-- End of Carousel Header -->
+
+    <main class="container py-4">
+      <h1 class="mb-4">Ekstrakurikuler Futsal</h1>
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-8" data-aos="fade-up">
+          <div class="text-center mb-4">
+            <img
+              src="../../../image/futsal.jpg"
+              alt="Futsal"
+              class="img-fluid rounded shadow"
+              style="max-width: 320px"
+            />
+          </div>
+          <p class="lead text-center">
+            Ekstrakurikuler Futsal di SMA Muhammadiyah Makassar adalah tempat
+            bagi siswa yang memiliki minat dan bakat di bidang olahraga futsal.
+            Kegiatan ini bertujuan mengembangkan kemampuan teknik, kerjasama
+            tim, sportivitas, dan prestasi di bidang olahraga futsal baik di
+            tingkat sekolah maupun luar sekolah.
+          </p>
+        </div>
+      </div>
+      <div class="accordion mb-5" id="accordionFutsal">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Visi & Misi Futsal
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionFutsal"
+          >
+            <div class="accordion-body">
+              <strong>Visi:</strong> Menjadi tim futsal sekolah yang
+              berprestasi, solid, dan menjunjung tinggi sportivitas.<br />
+              <strong>Misi:</strong>
+              <ul>
+                <li>
+                  Melatih teknik dasar dan strategi permainan futsal secara
+                  rutin.
+                </li>
+                <li>Mengembangkan kerjasama dan kekompakan tim.</li>
+                <li>
+                  Menanamkan nilai sportivitas dan disiplin dalam berolahraga.
+                </li>
+                <li>
+                  Berpartisipasi aktif dalam turnamen futsal tingkat sekolah dan
+                  luar sekolah.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Jadwal & Kegiatan Rutin
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionFutsal"
+          >
+            <div class="accordion-body">
+              <ul>
+                <li>Latihan rutin setiap Rabu sore di lapangan sekolah.</li>
+                <li>Uji coba pertandingan antar kelas/sekolah.</li>
+                <li>Pembinaan fisik dan mental oleh pelatih futsal.</li>
+                <li>
+                  Partisipasi dalam turnamen futsal tingkat kota/provinsi.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseThree"
+              aria-expanded="false"
+              aria-controls="collapseThree"
+            >
+              Prestasi & Dokumentasi
+            </button>
+          </h2>
+          <div
+            id="collapseThree"
+            class="accordion-collapse collapse"
+            aria-labelledby="headingThree"
+            data-bs-parent="#accordionFutsal"
+          >
+            <div class="accordion-body">
+              <ul>
+                <li>Juara 1 Turnamen Futsal Pelajar Kota Makassar 2024.</li>
+                <li>Runner-up Futsal Cup antar SMA se-Kota Makassar.</li>
+                <li>
+                  Galeri foto & video kegiatan dapat dilihat di bawah ini.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <section class="container mb-5" id="galeri-futsal">
+      <h2 class="mb-4 text-center">Galeri Futsal</h2>
+      <div class="row row-cols-1 row-cols-md-5 g-3 justify-content-center">
+        <div class="col">
+          <img
+            src="../../../image/slide1.jpg"
+            class="img-fluid rounded shadow-sm"
+            alt="Galeri Futsal 1"
+          />
+        </div>
+        <div class="col">
+          <img
+            src="../../../image/slide2.jpg"
+            class="img-fluid rounded shadow-sm"
+            alt="Galeri Futsal 2"
+          />
+        </div>
+        <div class="col">
+          <img
+            src="../../../image/logo.png"
+            class="img-fluid rounded shadow-sm"
+            alt="Galeri Futsal 3"
+          />
+        </div>
+        <div class="col">
+          <img
+            src="../../../image/kepala-sekolah.JPG"
+            class="img-fluid rounded shadow-sm"
+            alt="Galeri Futsal 4"
+          />
+        </div>
+        <div class="col">
+          <img
+            src="../../../image/flayer.jpeg"
+            class="img-fluid rounded shadow-sm"
+            alt="Galeri Futsal 5"
+          />
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-light text-center text-lg-start">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-4">
+            <h5 class="text-uppercase">SMA Muhammadiyah Makassar</h5>
+            <p>
+              Jl. Andi Mappaodang No.13, Bongaya, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90133<br />
+              Telepon: (0411) 123456<br />
+              Email: smamdismks@gmail.com
+            </p>
+          </div>
+          <div class="col-lg-6 col-md-12 mb-4">
+            <h5 class="text-uppercase">Link Terkait</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="https://youtu.be/sVeClzC6Dwc?si=ntsSpFMILjaIXH5i" class="text-dark" target="_blank">Youtube</a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=100091433911905&mibextid=JRoKG" class="text-dark" target="_blank">Facebook</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/smamdisofficial?igsh=MW8yZ29pMmZ3dnE0YQ==" class="text-dark" target="_blank">Instagram</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
+        © 2025 KKP PLUS FAKULTAS TEKNIK.
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+      // Enable Bootstrap dropdown submenu for Kesiswaan
+      document.addEventListener("DOMContentLoaded", function () {
+        var dropdownSubmenus = document.querySelectorAll(".dropdown-submenu");
+        dropdownSubmenus.forEach(function (submenu) {
+          submenu.addEventListener("mouseenter", function () {
+            var dropdownMenu = submenu.querySelector(".dropdown-menu");
+            if (dropdownMenu) {
+              dropdownMenu.classList.add("show");
+            }
+          });
+          submenu.addEventListener("mouseleave", function () {
+            var dropdownMenu = submenu.querySelector(".dropdown-menu");
+            if (dropdownMenu) {
+              dropdownMenu.classList.remove("show");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

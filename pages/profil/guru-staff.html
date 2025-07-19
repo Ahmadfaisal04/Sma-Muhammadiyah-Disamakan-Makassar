@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guru & Staff - SMA Muhammadiyah Makassar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <style>
+      .navbar-nav .nav-link.active,
+      .navbar-nav .nav-link:focus,
+      .navbar-nav .nav-link:hover {
+        color: #f7ac0b !important;
+      }
+      .navbar-nav .dropdown-menu .dropdown-item:focus,
+      .navbar-nav .dropdown-menu .dropdown-item:hover,
+      .navbar-nav .dropdown-menu .dropdown-item.active {
+        color: #f7ac0b !important;
+        background-color: transparent;
+      }
+      .navbar-logo {
+        filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff)
+          drop-shadow(0 0 6px #fff);
+      }
+      .card.guru-card {
+        border: none;
+        border-radius: 1rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+        background: #f8faf7;
+      }
+      .card.guru-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(41, 75, 41, 0.15);
+      }
+      .guru-card .card-img-top {
+        border: 4px solid #fff;
+        box-shadow: 0 2px 12px rgba(41, 75, 41, 0.08);
+        background: #e9ecef;
+      }
+      .guru-card .card-title {
+        color: #294b29;
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+      .guru-card .card-text {
+        color: #666;
+        font-size: 0.98rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: #294b29"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../../index.html">
+          <img
+            src="../../image/logo.png"
+            alt="Logo"
+            width="50"
+            height="50"
+            class="me-2 navbar-logo"
+          />
+          SMA Muhammadiyah
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../../index.html"
+                >Beranda</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                id="profilDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Profil
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="profilDropdown">
+                <li>
+                  <a class="dropdown-item" href="visi-misi.html"
+                    >Visi & Misi</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="sejarah.html"
+                    >Sejarah</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="guru-staff.html"
+                    >Guru & Staff</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="kurikulumDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Kurikulum
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="kurikulumDropdown">
+                <li>
+                  <a class="dropdown-item" href="../kurikulum/ipa.html"
+                    >IPA</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../kurikulum/ips.html"
+                    >IPS</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../kurikulum/bahasa.html"
+                    >Bahasa</a
+                  >
+                </li>
+              </ul>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="kesiswaanDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Kesiswaan
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="kesiswaanDropdown">
+                <li class="dropdown-submenu position-relative">
+                  <a
+                    class="dropdown-item dropdown-toggle"
+                    href="#"
+                    id="ekstrakurikulerDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Ekstrakurikuler
+                  </a>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="ekstrakurikulerDropdown"
+                    style="left: 100%; top: 0"
+                  >
+                    
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="../kesiswaan/extrakulikuler/seni.html"
+                        >Seni Tari</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="../kesiswaan/extrakulikuler/futsal.html"
+                        >Futsal</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown-submenu position-relative">
+                  <a
+                    class="dropdown-item dropdown-toggle"
+                    href="#"
+                    id="organisasiDropdown"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Organisasi
+                  </a>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="organisasiDropdown"
+                    style="left: 100%; top: 0"
+                  >
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="../kesiswaan/organisasi/ipm.html"
+                        >Ikatan Pelajar Muhammadiyah</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="../kesiswaan/organisasi/hw.html"
+                        >Hisbul Wathan</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="../kesiswaan/organisasi/tapaksuci.html"
+                        >Tapak Suci</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="./pages/kesiswaan/prestasi.html"
+                    >Prestasi</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../info-ppdb.html">Info PPDB</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../kontak.html">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Add your navbar code here, similar to the one in index.html -->
+
+    <main class="container py-4">
+      <h1 class="mb-4">Guru & Staff</h1>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" data-aos="fade-up">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/Kasmawati,S.Pd,Gr.jpeg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Kasmawati,S.Pd,Gr"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Kasmawati,S.Pd,Gr</h5>
+              <p class="card-text mb-1">Guru Sejarah Indonesia & Pkn</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="50">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/Muh. Fajriadi,S.Pd,Gr.jpeg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Muh. Fajriadi,S.Pd,Gri"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Muh. Fajriadi,S.Pd,Gr</h5>
+              <p class="card-text mb-1">Guru Sosiologi</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/Muh. Ikbal,S.Pd,M.Pd.jpeg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Muh. Ikbal,S.Pd,M.Pd"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Muh. Ikbal,S.Pd,M.Pd</h5>
+              <p class="card-text mb-1">Guru PJOK</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="150">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/Andi Junaedi S.Pd,M.Pd.jpeg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Andi Junaedi S.Pd,M.Pd"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Andi Junaedi S.Pd,M.Pd</h5>
+              <p class="card-text mb-1">Guru Fisika</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/Eli irmawati,S.Pd,Gr.jpeg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Irwan Maulana"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Eli irmawati,S.Pd,Gr.</h5>
+              <p class="card-text mb-1">Guru Matematika</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="250">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/Annisa Nofiar,S.Pd.jpeg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Dewi Sartika"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Annisa Nofiar,S.Pd.</h5>
+              <p class="card-text mb-1">Guru Geografi</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/Nur Fadhila S,Pd.jpeg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Nur Fadhila S,Pd."
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Nur Fadhila S,Pd.</h5>
+              <p class="card-text mb-1">Guru TIK</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="350">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/Miranti, S.Pd.jpeg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Miranti,S.Pd"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Miranti, S.Pd.</h5>
+              <p class="card-text mb-1">Guru Ekonomi</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="400">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/guru9.jpg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Drs. Haeruddin"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Drs. Haeruddin</h5>
+              <p class="card-text mb-1">Guru Kimia</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="450">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/guru10.jpg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Hijerah, S.Pd"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Hijerah, S.Pd</h5>
+              <p class="card-text mb-1">Guru Bahasa Inggris</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="500">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/guru11.jpg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Riri Yuliarnita, S.Pd."
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Riri Yuliarnita, S.Pd.</h5>
+              <p class="card-text mb-1">Guru Seni Budaya</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="550">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/guru12.jpg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="A. Nurwahida Asmi Safitri, S.Pd"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">A. Nurwahida Asmi Safitri, S.Pd</h5>
+              <p class="card-text mb-1">Guru Bahasa Indonesia</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="600">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/guru13.jpg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Yusuf Kalla"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Mirnawati A, S.Pd.</h5>
+              <p class="card-text mb-1">Guru Pendidikan Agama Islam</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="650">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/guru14.jpg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Muliati L, S.Pd"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Muliati L, S.Pd</h5>
+              <p class="card-text mb-1">Guru Biologi</p>
+            </div>
+          </div>
+        </div>
+        <div class="col" data-aos="fade-up" data-aos-delay="700">
+          <div class="card h-100 shadow-sm text-center guru-card">
+            <img
+              src="../../image/guru15.jpg"
+              class="card-img-top mx-auto mt-3 rounded-circle"
+              alt="Rahmat Hidayat"
+              style="width: 100px; height: 100px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Muh. Nur Ilham Hafid, S.Pd.</h5>
+              <p class="card-text mb-1">Guru Bahasa Arab</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-4">
+            <h5 class="text-uppercase">SMA Muhammadiyah Makassar</h5>
+            <p>
+              Jl. Andi Mappaodang No.13, Bongaya, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90133<br />
+              Telepon: (0411) 123456<br />
+              Email: smamdismks@gmail.com
+
+            </p>
+          </div>
+          <div class="col-lg-6 col-md-12 mb-4">
+            <h5 class="text-uppercase">Link Terkait</h5>
+            <ul class="list-unstyled">
+              <li>
+                <a href="https://youtu.be/sVeClzC6Dwc?si=ntsSpFMILjaIXH5i" class="text-dark" target="_blank">Youtube</a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=100091433911905&mibextid=JRoKG" class="text-dark" target="_blank">Facebook</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/smamdisofficial?igsh=MW8yZ29pMmZ3dnE0YQ==" class="text-dark" target="_blank">Instagram</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
+        © 2025 KKP PLUS FAKULTAS TEKNIK.
+      </div>
+    </footer>
+    <!-- Add your footer code here, similar to the one in index.html -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, once: true });
+      // Enable Bootstrap dropdown submenu for Kesiswaan
+      document.addEventListener("DOMContentLoaded", function () {
+        var dropdownSubmenus = document.querySelectorAll(".dropdown-submenu");
+        dropdownSubmenus.forEach(function (submenu) {
+          submenu.addEventListener("mouseenter", function () {
+            var dropdownMenu = submenu.querySelector(".dropdown-menu");
+            if (dropdownMenu) {
+              dropdownMenu.classList.add("show");
+            }
+          });
+          submenu.addEventListener("mouseleave", function () {
+            var dropdownMenu = submenu.querySelector(".dropdown-menu");
+            if (dropdownMenu) {
+              dropdownMenu.classList.remove("show");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
