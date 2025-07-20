@@ -44,7 +44,10 @@
       style="background-color: #294b29"
     >
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+        <a
+          class="navbar-brand d-flex align-items-center"
+          href="../../../index.html"
+        >
           <img
             src="../../../image/logo.png"
             alt="Logo"
@@ -157,20 +160,11 @@
                     aria-labelledby="ekstrakurikulerDropdown"
                     style="left: 100%; top: 0"
                   >
-                  
                     <li>
-                      <a
-                        class="dropdown-item"
-                        href="seni.html"
-                        >Seni Tari</a
-                      >
+                      <a class="dropdown-item" href="seni.html">Seni Tari</a>
                     </li>
                     <li>
-                      <a
-                        class="dropdown-item"
-                        href="futsal.html"
-                        >Futsal</a
-                      >
+                      <a class="dropdown-item" href="futsal.html">Futsal</a>
                     </li>
                   </ul>
                 </li>
@@ -190,16 +184,12 @@
                     style="left: 100%; top: 0"
                   >
                     <li>
-                      <a
-                        class="dropdown-item"
-                        href="../organisasi/ipm.html"
+                      <a class="dropdown-item" href="../organisasi/ipm.html"
                         >Ikatan Pelajar Muhammadiyah</a
                       >
                     </li>
                     <li>
-                      <a
-                        class="dropdown-item"
-                        href="../organisasi/hw.html"
+                      <a class="dropdown-item" href="../organisasi/hw.html"
                         >Hisbul Wathan</a
                       >
                     </li>
@@ -213,11 +203,7 @@
                   </ul>
                 </li>
                 <li>
-                  <a
-                    class="dropdown-item"
-                    href="../prestasi.html"
-                    >Prestasi</a
-                  >
+                  <a class="dropdown-item" href="../prestasi.html">Prestasi</a>
                 </li>
               </ul>
             </li>
@@ -361,7 +347,7 @@
         </div>
       </div>
     </main>
-    
+
     <section class="container mb-5" id="galeri-futsal">
       <h2 class="mb-4 text-center">Galeri Futsal</h2>
       <div class="row row-cols-1 row-cols-md-5 g-3 justify-content-center">
@@ -409,7 +395,8 @@
           <div class="col-lg-6 col-md-12 mb-4">
             <h5 class="text-uppercase">SMA Muhammadiyah Makassar</h5>
             <p>
-              Jl. Andi Mappaodang No.13, Bongaya, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90133<br />
+              Jl. Andi Mappaodang No.13, Bongaya, Kec. Tamalate, Kota Makassar,
+              Sulawesi Selatan 90133<br />
               Telepon: (0411) 123456<br />
               Email: smamdismks@gmail.com
             </p>
@@ -418,13 +405,28 @@
             <h5 class="text-uppercase">Link Terkait</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="https://youtu.be/sVeClzC6Dwc?si=ntsSpFMILjaIXH5i" class="text-dark" target="_blank">Youtube</a>
+                <a
+                  href="https://youtu.be/sVeClzC6Dwc?si=ntsSpFMILjaIXH5i"
+                  class="text-dark"
+                  target="_blank"
+                  >Youtube</a
+                >
               </li>
               <li>
-                <a href="https://www.facebook.com/profile.php?id=100091433911905&mibextid=JRoKG" class="text-dark" target="_blank">Facebook</a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100091433911905&mibextid=JRoKG"
+                  class="text-dark"
+                  target="_blank"
+                  >Facebook</a
+                >
               </li>
               <li>
-                <a href="https://www.instagram.com/smamdisofficial?igsh=MW8yZ29pMmZ3dnE0YQ==" class="text-dark" target="_blank">Instagram</a>
+                <a
+                  href="https://www.instagram.com/smamdisofficial?igsh=MW8yZ29pMmZ3dnE0YQ=="
+                  class="text-dark"
+                  target="_blank"
+                  >Instagram</a
+                >
               </li>
             </ul>
           </div>
@@ -441,21 +443,54 @@
       AOS.init({ duration: 800, once: true });
       // Enable Bootstrap dropdown submenu for Kesiswaan
       document.addEventListener("DOMContentLoaded", function () {
-        var dropdownSubmenus = document.querySelectorAll(".dropdown-submenu");
-        dropdownSubmenus.forEach(function (submenu) {
-          submenu.addEventListener("mouseenter", function () {
-            var dropdownMenu = submenu.querySelector(".dropdown-menu");
-            if (dropdownMenu) {
-              dropdownMenu.classList.add("show");
+        var dropdownSubmenus = document.querySelectorAll(
+          ".dropdown-submenu > .dropdown-toggle"
+        );
+        // Desktop: hover
+        dropdownSubmenus.forEach(function (toggle) {
+          var parent = toggle.parentElement;
+          parent.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 992) {
+              var dropdownMenu = parent.querySelector(".dropdown-menu");
+              if (dropdownMenu) dropdownMenu.classList.add("show");
             }
           });
-          submenu.addEventListener("mouseleave", function () {
-            var dropdownMenu = submenu.querySelector(".dropdown-menu");
-            if (dropdownMenu) {
-              dropdownMenu.classList.remove("show");
+          parent.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 992) {
+              var dropdownMenu = parent.querySelector(".dropdown-menu");
+              if (dropdownMenu) dropdownMenu.classList.remove("show");
             }
           });
         });
+        // Mobile: click
+        dropdownSubmenus.forEach(function (toggle) {
+          toggle.addEventListener("click", function (e) {
+            if (window.innerWidth < 992) {
+              e.preventDefault();
+              var dropdownMenu = this.nextElementSibling;
+              if (dropdownMenu) {
+                dropdownMenu.classList.toggle("show");
+              }
+              // Close other open submenus
+              document
+                .querySelectorAll(".dropdown-submenu .dropdown-menu")
+                .forEach(function (menu) {
+                  if (menu !== dropdownMenu) menu.classList.remove("show");
+                });
+            }
+          });
+        });
+        // Close all submenus when navbar is closed (mobile)
+        var navbarCollapse = document.getElementById("navbarNavDropdown");
+        if (navbarCollapse) {
+          navbarCollapse.addEventListener("hide.bs.collapse", function () {
+            document
+              .querySelectorAll(".dropdown-submenu .dropdown-menu")
+              .forEach(function (menu) {
+                menu.classList.remove("show");
+              });
+          });
+        }
       });
     </script>
   </body>
