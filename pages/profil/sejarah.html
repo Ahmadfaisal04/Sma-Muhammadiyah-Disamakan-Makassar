@@ -11,8 +11,7 @@
     <link
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
-    />
-    <style>
+    />    <style>
       .navbar-nav .nav-link.active,
       .navbar-nav .nav-link:focus,
       .navbar-nav .nav-link:hover {
@@ -24,9 +23,73 @@
         color: #f7ac0b !important;
         background-color: transparent;
       }
+      .dropdown-submenu > .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+      }
+      .dropdown-submenu {
+        position: relative;
+      }
       .navbar-logo {
         filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff)
           drop-shadow(0 0 6px #fff);
+      }
+      
+      /* Mobile responsive adjustments for dropdown */
+      @media (max-width: 991px) {
+        .dropdown-submenu > .dropdown-menu {
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+          float: none;
+          width: auto;
+          margin-top: 0;
+          background-color: rgba(0,0,0,0.05);
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          display: none;
+        }
+        
+        .dropdown-submenu > .dropdown-menu.show {
+          display: block;
+        }
+        
+        .dropdown-submenu .dropdown-toggle::after {
+          float: right;
+          margin-top: 0.5rem;
+        }
+        
+        .dropdown-submenu .dropdown-menu .dropdown-item {
+          padding-left: 2rem;
+        }
+      }
+      
+      /* Desktop styles */
+      @media (min-width: 992px) {
+        .dropdown-submenu > .dropdown-menu {
+          display: none;
+        }
+        
+        .dropdown-submenu > .dropdown-menu.show {
+          display: block;
+        }
+      }
+      
+      /* Ensure dropdown toggles are clickable */
+      .dropdown-submenu .dropdown-toggle {
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      /* Prevent text selection on dropdown toggle */
+      .dropdown-submenu .dropdown-toggle::-moz-selection {
+        background: transparent;
+      }
+      
+      .dropdown-submenu .dropdown-toggle::selection {
+        background: transparent;
       }
     </style>
   </head>
@@ -134,13 +197,11 @@
               >
                 Kesiswaan
               </a>
-              <ul class="dropdown-menu" aria-labelledby="kesiswaanDropdown">
-                <li class="dropdown-submenu position-relative">
+              <ul class="dropdown-menu" aria-labelledby="kesiswaanDropdown">                <li class="dropdown-submenu position-relative">
                   <a
                     class="dropdown-item dropdown-toggle"
                     href="#"
                     id="ekstrakurikulerDropdown"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Ekstrakurikuler
@@ -166,13 +227,11 @@
                       >
                     </li>
                   </ul>
-                </li>
-                <li class="dropdown-submenu position-relative">
+                </li>                <li class="dropdown-submenu position-relative">
                   <a
                     class="dropdown-item dropdown-toggle"
                     href="#"
                     id="organisasiDropdown"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Organisasi
@@ -205,13 +264,7 @@
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="./pages/kesiswaan/prestasi.html"
-                    >Prestasi</a
-                  >
-                </li>
+                
               </ul>
             </li>
             <li class="nav-item">
@@ -226,8 +279,33 @@
     </nav>
     <!-- ...navbar dari index.html... -->
     <main class="container py-4">
-      <h1>Sejarah</h1>
-      <p>Halaman Sejarah SMA Muhammadiyah Makassar.</p>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <h1 class="text-center mb-5" data-aos="fade-up">Sejarah SMA Muhammadiyah Disamakan Makassar</h1>
+          <div class="card shadow-sm mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-body">
+              <p class="text-justify mb-3">
+                SMA Muhammadiyah Disamakan Makassar, didirikan oleh Pimpinan Wilayah Muhammadiyah pada tahun 1985 yang di... Alhamdulillah, segala puji dan syukur kita panjatkan ke hadirat Allah SWT yang telah melimpahkan nikmat kepada kita semua mulai dari nikmat sehat, iman dan kesempatan untuk dapat berkarya di bidang pendidikan untuk mencerdaskan anak bangsa.
+              </p>
+              <p class="text-justify mb-3">
+                Pendidikan adalah modal utama bagi suatu bangsa dalam upaya meningkatkan kualitas sumberdaya manusia yang dimilikinya. Sumber daya manusia yang berkualitas akan mampu mengelola sumber daya alam dan memberi layanan secara efektif dan efisien untuk meningkatkan kesejahteraan masyarakat. Oleh karena itu, hampir semua bangsa berusaha meningkatkan kualitas pendidikan yang dimilikinya, termasuk Indonesia.
+              </p>
+              <p class="text-justify mb-3">
+                Pada dasarnya peningkatan kualitas pendidikan berbasis pada sekolah. Sekolah merupakan basis peningkatan kualitas, karena sekolah lebih mengetahui masalah yang dihadapi dalam meningkatkan kualitas pendidikan. Sekolah berfungsi sebagai unit yang mengembangkan kurikulum, silabus, strategi pembelajaran, dan sistem penilaian.
+              </p>
+              <p class="text-justify mb-3">
+                SMA Muhammadiyah Disamakan Makassar sebagai salah satu sekolah Adiwiyata yang akan menuju ke Tingkat Nasional, juga menjadi salah satu sekolah yang berusaha mewujudkan apa yang menjadi harapan pemerintah dan masyarakat, melalui serangkaian kegiatan dan program kerja yang berorientasi kepada peningkatan kualitas dan daya saing lulusan. Dalam rangka merealisasikan hal tersebut perlu dijalin kerjasama dan komunikasi yang baik antara pihak sekolah, masyarakat dan pemerintah. Website ini kami hadirkan ke hadapan bapak/ibu sebagai bagian upaya untuk menjalin komunikasi dan mengawali kerjasama yang baik diantara kita.
+              </p>
+              <p class="text-justify mb-3">
+                Melalui upaya menyajikan website ini ke hadapan bapak/ibu, kami berharap dapat menjalin komunikasi dua arah antara pihak sekolah, siswa, pemerintah dan masyarakat. Komunikasi ini akan sangat berguna bagi semua pihak yang berkepentingan, bagi pihak sekolah informasi yang didapat dari masyarakat akan digunakan sebagai bahan pertimbangan dan evaluasi kebijakan yang ada, di sisi lain pihak sekolah juga dapat menyampaikan dan mensosialisasikan program serta kebijakan sekolah.
+              </p>
+              <p class="text-justify mb-0">
+                Kami berharap bahwa pendidikan di Sulawesi Selatan pada umumnya dan di Makassar pada khususnya SMA Muhammadiyah Disamakan dapat terus ditingkatkan kualitasnya sehingga pada saatnya nantinya SMA Muhammadiyah Disamakan dapat sejajar dengan sekolah-sekolah yang maju yang ada di Indonesia.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->
@@ -260,31 +338,93 @@
         </div>
       </div>
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
-        © 2025 KKP PLUS FAKULTAS TEKNIK.
+        <a
+          href="https://www.instagram.com/kkp_plus_smas_makassar?igsh=MWExMGpnajl6bDJsaQ=="
+          target="_blank"
+          class="fw-bold text-dark"
+          style="text-decoration: none"
+        >
+        © 2025 KKP PLUS FAKULTAS TEKNIK
+        </a>
       </div>
     </footer>
     <!-- ...footer dari index.html... -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>    <script>
       AOS.init({ duration: 800, once: true });
+      
       // Enable Bootstrap dropdown submenu for Kesiswaan
       document.addEventListener("DOMContentLoaded", function () {
         var dropdownSubmenus = document.querySelectorAll(".dropdown-submenu");
+        
         dropdownSubmenus.forEach(function (submenu) {
-          submenu.addEventListener("mouseenter", function () {
-            var dropdownMenu = submenu.querySelector(".dropdown-menu");
-            if (dropdownMenu) {
-              dropdownMenu.classList.add("show");
-            }
-          });
-          submenu.addEventListener("mouseleave", function () {
-            var dropdownMenu = submenu.querySelector(".dropdown-menu");
-            if (dropdownMenu) {
-              dropdownMenu.classList.remove("show");
-            }
-          });
+          var dropdownToggle = submenu.querySelector(".dropdown-toggle");
+          var dropdownMenu = submenu.querySelector(".dropdown-menu");
+          
+          if (dropdownToggle && dropdownMenu) {
+            // Remove any existing Bootstrap dropdown behavior
+            dropdownToggle.removeAttribute('data-bs-toggle');
+            
+            // For desktop - hover functionality
+            submenu.addEventListener("mouseenter", function () {
+              if (window.innerWidth > 991) { // Use Bootstrap's lg breakpoint
+                dropdownMenu.classList.add("show");
+              }
+            });
+            
+            submenu.addEventListener("mouseleave", function () {
+              if (window.innerWidth > 991) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+            
+            // For mobile and tablet - click functionality
+            dropdownToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              
+              // Close all other open submenus
+              dropdownSubmenus.forEach(function (otherSubmenu) {
+                if (otherSubmenu !== submenu) {
+                  var otherMenu = otherSubmenu.querySelector(".dropdown-menu");
+                  if (otherMenu) {
+                    otherMenu.classList.remove("show");
+                  }
+                }
+              });
+              
+              // Toggle current submenu
+              dropdownMenu.classList.toggle("show");
+            });
+          }
         });
+        
+        // Close submenu when clicking outside
+        document.addEventListener("click", function (e) {
+          // Check if click is outside all dropdown submenus
+          var isClickInsideAnyDropdown = e.target.closest(".dropdown-submenu") || e.target.closest(".dropdown-menu");
+          if (!isClickInsideAnyDropdown) {
+            dropdownSubmenus.forEach(function (submenu) {
+              var dropdownMenu = submenu.querySelector(".dropdown-menu");
+              if (dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+          }
+        });
+        
+        // Handle main dropdown close event to also close submenus
+        var mainDropdown = document.getElementById('kesiswaanDropdown');
+        if (mainDropdown) {
+          mainDropdown.addEventListener('hidden.bs.dropdown', function () {
+            dropdownSubmenus.forEach(function (submenu) {
+              var dropdownMenu = submenu.querySelector(".dropdown-menu");
+              if (dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+          });
+        }
       });
     </script>
   </body>

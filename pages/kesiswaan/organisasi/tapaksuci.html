@@ -36,6 +36,62 @@
         filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff)
           drop-shadow(0 0 6px #fff);
       }
+
+      /* Mobile responsive adjustments for dropdown */
+      @media (max-width: 991px) {
+        .dropdown-submenu > .dropdown-menu {
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+          float: none;
+          width: auto;
+          margin-top: 0;
+          background-color: rgba(0, 0, 0, 0.05);
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          display: none;
+        }
+
+        .dropdown-submenu > .dropdown-menu.show {
+          display: block;
+        }
+
+        .dropdown-submenu .dropdown-toggle::after {
+          float: right;
+          margin-top: 0.5rem;
+        }
+
+        .dropdown-submenu .dropdown-menu .dropdown-item {
+          padding-left: 2rem;
+        }
+      }
+
+      /* Desktop styles */
+      @media (min-width: 992px) {
+        .dropdown-submenu > .dropdown-menu {
+          display: none;
+        }
+
+        .dropdown-submenu > .dropdown-menu.show {
+          display: block;
+        }
+      }
+
+      /* Ensure dropdown toggles are clickable */
+      .dropdown-submenu .dropdown-toggle {
+        cursor: pointer;
+        user-select: none;
+      }
+
+      /* Prevent text selection on dropdown toggle */
+      .dropdown-submenu .dropdown-toggle::-moz-selection {
+        background: transparent;
+      }
+
+      .dropdown-submenu .dropdown-toggle::selection {
+        background: transparent;
+      }
     </style>
   </head>
   <body>
@@ -88,17 +144,17 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="profilDropdown">
                 <li>
-                  <a class="dropdown-item" href="./pages/profil/visi-misi.html"
+                  <a class="dropdown-item" href="../../profil/visi-misi.html"
                     >Visi & Misi</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="./pages/profil/sejarah.html"
+                  <a class="dropdown-item" href="../../profil/sejarah.html"
                     >Sejarah</a
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" href="./pages/profil/guru-staff.html"
+                  <a class="dropdown-item" href="../../profil/guru-staff.html"
                     >Guru & Staff</a
                   >
                 </li>
@@ -150,7 +206,6 @@
                     class="dropdown-item dropdown-toggle"
                     href="#"
                     id="ekstrakurikulerDropdown"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Ekstrakurikuler
@@ -181,7 +236,6 @@
                     class="dropdown-item dropdown-toggle"
                     href="#"
                     id="organisasiDropdown"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Organisasi
@@ -205,9 +259,6 @@
                       >
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../prestasi.html">Prestasi</a>
                 </li>
               </ul>
             </li>
@@ -356,41 +407,28 @@
     <section class="container mb-5" id="galeri-tapaksuci">
       <h2 class="mb-4 text-center">Galeri Tapak Suci</h2>
       <div class="row row-cols-1 row-cols-md-5 g-3 justify-content-center">
-        <div class="col">
+        <div class="col" data-aos="zoom-in" data-aos-delay="100">
           <img
-            src="../../../image/slide1.jpg"
+            src="../../../image/prestasi2.png"
             class="img-fluid rounded shadow-sm"
             alt="Galeri Tapak Suci 1"
           />
         </div>
-        <div class="col">
+        <div class="col" data-aos="zoom-in" data-aos-delay="200">
           <img
-            src="../../../image/slide2.jpg"
+            src="../../../image/pres8.png"
             class="img-fluid rounded shadow-sm"
             alt="Galeri Tapak Suci 2"
           />
         </div>
-        <div class="col">
+        <div class="col" data-aos="zoom-in" data-aos-delay="300">
           <img
-            src="../../../image/logo.png"
+            src="../../../image/berprestasi1.png"
             class="img-fluid rounded shadow-sm"
             alt="Galeri Tapak Suci 3"
           />
         </div>
-        <div class="col">
-          <img
-            src="../../../image/kepala-sekolah.JPG"
-            class="img-fluid rounded shadow-sm"
-            alt="Galeri Tapak Suci 4"
-          />
-        </div>
-        <div class="col">
-          <img
-            src="../../../image/flayer.jpeg"
-            class="img-fluid rounded shadow-sm"
-            alt="Galeri Tapak Suci 5"
-          />
-        </div>
+        
       </div>
     </section>
 
@@ -438,7 +476,14 @@
         </div>
       </div>
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
-        © 2025 KKP PLUS FAKULTAS TEKNIK.
+        <a
+          href="https://www.instagram.com/kkp_plus_smas_makassar?igsh=MWExMGpnajl6bDJsaQ=="
+          target="_blank"
+          class="fw-bold text-dark"
+          style="text-decoration: none"
+        >
+        © 2025 KKP PLUS FAKULTAS TEKNIK
+        </a>
       </div>
     </footer>
 
@@ -446,18 +491,118 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 800, once: true });
-      // Enable Bootstrap dropdown submenu for Kesiswaan
+
+      // Mobile-responsive dropdown functionality
       document.addEventListener("DOMContentLoaded", function () {
-        var dropdownSubmenus = document.querySelectorAll(".dropdown-submenu");
+        const dropdownSubmenus = document.querySelectorAll(".dropdown-submenu");
+
+        // Remove any conflicting attributes that might interfere
         dropdownSubmenus.forEach(function (submenu) {
-          submenu.addEventListener("mouseenter", function () {
-            var dropdownMenu = submenu.querySelector(".dropdown-menu");
-            if (dropdownMenu) {
-              dropdownMenu.classList.add("show");
+          const toggle = submenu.querySelector(".dropdown-toggle");
+          if (toggle) {
+            toggle.removeAttribute("data-bs-toggle");
+          }
+        });
+
+        function isMobile() {
+          return window.innerWidth <= 991;
+        }
+
+        // Desktop behavior (hover)
+        function setupDesktopBehavior() {
+          dropdownSubmenus.forEach(function (submenu) {
+            const dropdownMenu = submenu.querySelector(".dropdown-menu");
+
+            submenu.addEventListener("mouseenter", function () {
+              if (!isMobile() && dropdownMenu) {
+                // Close other submenus first
+                dropdownSubmenus.forEach(function (otherSubmenu) {
+                  if (otherSubmenu !== submenu) {
+                    const otherMenu =
+                      otherSubmenu.querySelector(".dropdown-menu");
+                    if (otherMenu) {
+                      otherMenu.classList.remove("show");
+                    }
+                  }
+                });
+                dropdownMenu.classList.add("show");
+              }
+            });
+
+            submenu.addEventListener("mouseleave", function () {
+              if (!isMobile() && dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+          });
+        }
+
+        // Mobile behavior (click)
+        function setupMobileBehavior() {
+          dropdownSubmenus.forEach(function (submenu) {
+            const toggle = submenu.querySelector(".dropdown-toggle");
+            const dropdownMenu = submenu.querySelector(".dropdown-menu");
+
+            if (toggle && dropdownMenu) {
+              toggle.addEventListener("click", function (e) {
+                if (isMobile()) {
+                  e.preventDefault();
+                  e.stopPropagation();
+
+                  // Close other submenus first
+                  dropdownSubmenus.forEach(function (otherSubmenu) {
+                    if (otherSubmenu !== submenu) {
+                      const otherMenu =
+                        otherSubmenu.querySelector(".dropdown-menu");
+                      if (otherMenu) {
+                        otherMenu.classList.remove("show");
+                      }
+                    }
+                  });
+
+                  // Toggle current submenu
+                  dropdownMenu.classList.toggle("show");
+                }
+              });
             }
           });
-          submenu.addEventListener("mouseleave", function () {
-            var dropdownMenu = submenu.querySelector(".dropdown-menu");
+        }
+
+        // Initialize both behaviors
+        setupDesktopBehavior();
+        setupMobileBehavior();
+
+        // Close dropdowns when clicking outside
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".dropdown-submenu")) {
+            dropdownSubmenus.forEach(function (submenu) {
+              const dropdownMenu = submenu.querySelector(".dropdown-menu");
+              if (dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+          }
+        });
+
+        // Handle main dropdown close
+        const mainDropdown = document.getElementById("kesiswaanDropdown");
+        if (mainDropdown) {
+          mainDropdown.addEventListener("hidden.bs.dropdown", function () {
+            // Close all submenus when main dropdown closes
+            dropdownSubmenus.forEach(function (submenu) {
+              const dropdownMenu = submenu.querySelector(".dropdown-menu");
+              if (dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+          });
+        }
+
+        // Handle window resize
+        window.addEventListener("resize", function () {
+          // Close all submenus on resize to avoid inconsistent states
+          dropdownSubmenus.forEach(function (submenu) {
+            const dropdownMenu = submenu.querySelector(".dropdown-menu");
             if (dropdownMenu) {
               dropdownMenu.classList.remove("show");
             }

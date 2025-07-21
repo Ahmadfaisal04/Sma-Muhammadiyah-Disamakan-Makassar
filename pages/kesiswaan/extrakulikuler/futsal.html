@@ -36,6 +36,62 @@
         filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff)
           drop-shadow(0 0 6px #fff);
       }
+
+      /* Mobile responsive adjustments for dropdown */
+      @media (max-width: 991px) {
+        .dropdown-submenu > .dropdown-menu {
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+          float: none;
+          width: auto;
+          margin-top: 0;
+          background-color: rgba(0, 0, 0, 0.05);
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          display: none;
+        }
+
+        .dropdown-submenu > .dropdown-menu.show {
+          display: block;
+        }
+
+        .dropdown-submenu .dropdown-toggle::after {
+          float: right;
+          margin-top: 0.5rem;
+        }
+
+        .dropdown-submenu .dropdown-menu .dropdown-item {
+          padding-left: 2rem;
+        }
+      }
+
+      /* Desktop styles */
+      @media (min-width: 992px) {
+        .dropdown-submenu > .dropdown-menu {
+          display: none;
+        }
+
+        .dropdown-submenu > .dropdown-menu.show {
+          display: block;
+        }
+      }
+
+      /* Ensure dropdown toggles are clickable */
+      .dropdown-submenu .dropdown-toggle {
+        cursor: pointer;
+        user-select: none;
+      }
+
+      /* Prevent text selection on dropdown toggle */
+      .dropdown-submenu .dropdown-toggle::-moz-selection {
+        background: transparent;
+      }
+
+      .dropdown-submenu .dropdown-toggle::selection {
+        background: transparent;
+      }
     </style>
   </head>
   <body>
@@ -150,7 +206,6 @@
                     class="dropdown-item dropdown-toggle"
                     href="#"
                     id="ekstrakurikulerDropdown"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Ekstrakurikuler
@@ -173,7 +228,6 @@
                     class="dropdown-item dropdown-toggle"
                     href="#"
                     id="organisasiDropdown"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Organisasi
@@ -201,9 +255,6 @@
                       >
                     </li>
                   </ul>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="../prestasi.html">Prestasi</a>
                 </li>
               </ul>
             </li>
@@ -353,35 +404,35 @@
       <div class="row row-cols-1 row-cols-md-5 g-3 justify-content-center">
         <div class="col">
           <img
-            src="../../../image/slide1.jpg"
+            src="../../../image/"
             class="img-fluid rounded shadow-sm"
             alt="Galeri Futsal 1"
           />
         </div>
         <div class="col">
           <img
-            src="../../../image/slide2.jpg"
+            src="../../../image/"
             class="img-fluid rounded shadow-sm"
             alt="Galeri Futsal 2"
           />
         </div>
         <div class="col">
           <img
-            src="../../../image/logo.png"
+            src="../../../image/"
             class="img-fluid rounded shadow-sm"
             alt="Galeri Futsal 3"
           />
         </div>
         <div class="col">
           <img
-            src="../../../image/kepala-sekolah.JPG"
+            src="../../../image/"
             class="img-fluid rounded shadow-sm"
             alt="Galeri Futsal 4"
           />
         </div>
         <div class="col">
           <img
-            src="../../../image/flayer.jpeg"
+            src="../../../image/"
             class="img-fluid rounded shadow-sm"
             alt="Galeri Futsal 5"
           />
@@ -433,7 +484,14 @@
         </div>
       </div>
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
-        © 2025 KKP PLUS FAKULTAS TEKNIK.
+        <a
+          href="https://www.instagram.com/kkp_plus_smas_makassar?igsh=MWExMGpnajl6bDJsaQ=="
+          target="_blank"
+          class="fw-bold text-dark"
+          style="text-decoration: none"
+        >
+        © 2025 KKP PLUS FAKULTAS TEKNIK
+        </a>
       </div>
     </footer>
 
@@ -441,54 +499,80 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 800, once: true });
+
       // Enable Bootstrap dropdown submenu for Kesiswaan
       document.addEventListener("DOMContentLoaded", function () {
-        var dropdownSubmenus = document.querySelectorAll(
-          ".dropdown-submenu > .dropdown-toggle"
-        );
-        // Desktop: hover
-        dropdownSubmenus.forEach(function (toggle) {
-          var parent = toggle.parentElement;
-          parent.addEventListener("mouseenter", function () {
-            if (window.innerWidth >= 992) {
-              var dropdownMenu = parent.querySelector(".dropdown-menu");
-              if (dropdownMenu) dropdownMenu.classList.add("show");
-            }
-          });
-          parent.addEventListener("mouseleave", function () {
-            if (window.innerWidth >= 992) {
-              var dropdownMenu = parent.querySelector(".dropdown-menu");
-              if (dropdownMenu) dropdownMenu.classList.remove("show");
-            }
-          });
-        });
-        // Mobile: click
-        dropdownSubmenus.forEach(function (toggle) {
-          toggle.addEventListener("click", function (e) {
-            if (window.innerWidth < 992) {
-              e.preventDefault();
-              var dropdownMenu = this.nextElementSibling;
-              if (dropdownMenu) {
-                dropdownMenu.classList.toggle("show");
+        var dropdownSubmenus = document.querySelectorAll(".dropdown-submenu");
+
+        dropdownSubmenus.forEach(function (submenu) {
+          var dropdownToggle = submenu.querySelector(".dropdown-toggle");
+          var dropdownMenu = submenu.querySelector(".dropdown-menu");
+
+          if (dropdownToggle && dropdownMenu) {
+            // Remove any existing Bootstrap dropdown behavior
+            dropdownToggle.removeAttribute("data-bs-toggle");
+
+            // For desktop - hover functionality
+            submenu.addEventListener("mouseenter", function () {
+              if (window.innerWidth > 991) {
+                // Use Bootstrap's lg breakpoint
+                dropdownMenu.classList.add("show");
               }
-              // Close other open submenus
-              document
-                .querySelectorAll(".dropdown-submenu .dropdown-menu")
-                .forEach(function (menu) {
-                  if (menu !== dropdownMenu) menu.classList.remove("show");
-                });
-            }
-          });
-        });
-        // Close all submenus when navbar is closed (mobile)
-        var navbarCollapse = document.getElementById("navbarNavDropdown");
-        if (navbarCollapse) {
-          navbarCollapse.addEventListener("hide.bs.collapse", function () {
-            document
-              .querySelectorAll(".dropdown-submenu .dropdown-menu")
-              .forEach(function (menu) {
-                menu.classList.remove("show");
+            });
+
+            submenu.addEventListener("mouseleave", function () {
+              if (window.innerWidth > 991) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+
+            // For mobile and tablet - click functionality
+            dropdownToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+
+              // Close all other open submenus
+              dropdownSubmenus.forEach(function (otherSubmenu) {
+                if (otherSubmenu !== submenu) {
+                  var otherMenu = otherSubmenu.querySelector(".dropdown-menu");
+                  if (otherMenu) {
+                    otherMenu.classList.remove("show");
+                  }
+                }
               });
+
+              // Toggle current submenu
+              dropdownMenu.classList.toggle("show");
+            });
+          }
+        });
+
+        // Close submenu when clicking outside
+        document.addEventListener("click", function (e) {
+          // Check if click is outside all dropdown submenus
+          var isClickInsideAnyDropdown =
+            e.target.closest(".dropdown-submenu") ||
+            e.target.closest(".dropdown-menu");
+          if (!isClickInsideAnyDropdown) {
+            dropdownSubmenus.forEach(function (submenu) {
+              var dropdownMenu = submenu.querySelector(".dropdown-menu");
+              if (dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+          }
+        });
+
+        // Handle main dropdown close event to also close submenus
+        var mainDropdown = document.getElementById("kesiswaanDropdown");
+        if (mainDropdown) {
+          mainDropdown.addEventListener("hidden.bs.dropdown", function () {
+            dropdownSubmenus.forEach(function (submenu) {
+              var dropdownMenu = submenu.querySelector(".dropdown-menu");
+              if (dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
           });
         }
       });

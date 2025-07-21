@@ -36,6 +36,62 @@
         filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #fff)
           drop-shadow(0 0 6px #fff);
       }
+
+      /* Mobile responsive adjustments for dropdown */
+      @media (max-width: 991px) {
+        .dropdown-submenu > .dropdown-menu {
+          position: static !important;
+          left: auto !important;
+          top: auto !important;
+          float: none;
+          width: auto;
+          margin-top: 0;
+          background-color: rgba(0, 0, 0, 0.05);
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          display: none;
+        }
+
+        .dropdown-submenu > .dropdown-menu.show {
+          display: block;
+        }
+
+        .dropdown-submenu .dropdown-toggle::after {
+          float: right;
+          margin-top: 0.5rem;
+        }
+
+        .dropdown-submenu .dropdown-menu .dropdown-item {
+          padding-left: 2rem;
+        }
+      }
+
+      /* Desktop styles */
+      @media (min-width: 992px) {
+        .dropdown-submenu > .dropdown-menu {
+          display: none;
+        }
+
+        .dropdown-submenu > .dropdown-menu.show {
+          display: block;
+        }
+      }
+
+      /* Ensure dropdown toggles are clickable */
+      .dropdown-submenu .dropdown-toggle {
+        cursor: pointer;
+        user-select: none;
+      }
+
+      /* Prevent text selection on dropdown toggle */
+      .dropdown-submenu .dropdown-toggle::-moz-selection {
+        background: transparent;
+      }
+
+      .dropdown-submenu .dropdown-toggle::selection {
+        background: transparent;
+      }
     </style>
   </head>
   <body>
@@ -44,7 +100,10 @@
       style="background-color: #294b29"
     >
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="../../../index.html">
+        <a
+          class="navbar-brand d-flex align-items-center"
+          href="../../../index.html"
+        >
           <img
             src="../../../image/logo.png"
             alt="Logo"
@@ -147,7 +206,6 @@
                     class="dropdown-item dropdown-toggle"
                     href="#"
                     id="ekstrakurikulerDropdown"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Ekstrakurikuler
@@ -157,20 +215,11 @@
                     aria-labelledby="ekstrakurikulerDropdown"
                     style="left: 100%; top: 0"
                   >
-                  
                     <li>
-                      <a
-                        class="dropdown-item"
-                        href="seni.html"
-                        >Seni Tari</a
-                      >
+                      <a class="dropdown-item" href="seni.html">Seni Tari</a>
                     </li>
                     <li>
-                      <a
-                        class="dropdown-item"
-                        href="futsal.html"
-                        >Futsal</a
-                      >
+                      <a class="dropdown-item" href="futsal.html">Futsal</a>
                     </li>
                   </ul>
                 </li>
@@ -179,7 +228,6 @@
                     class="dropdown-item dropdown-toggle"
                     href="#"
                     id="organisasiDropdown"
-                    data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     Organisasi
@@ -212,13 +260,6 @@
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a
-                    class="dropdown-item"
-                    href="../prestasi.html"
-                    >Prestasi</a
-                  >
-                </li>
               </ul>
             </li>
             <li class="nav-item">
@@ -240,14 +281,6 @@
       <h1 class="mb-4">Ekstrakurikuler Seni Tari</h1>
       <div class="row justify-content-center mb-4">
         <div class="col-md-8" data-aos="fade-up">
-          <div class="text-center mb-4">
-            <img
-              src="../../../image/seni.jpg"
-              alt="Seni Tari"
-              class="img-fluid rounded shadow"
-              style="max-width: 320px"
-            />
-          </div>
           <p class="lead text-center">
             Ekstrakurikuler Seni Tari di SMA Muhammadiyah Makassar adalah wadah
             bagi siswa untuk menyalurkan bakat dan minat di bidang seni,
@@ -368,7 +401,7 @@
       <div class="row g-3 justify-content-center">
         <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in">
           <img
-            src="../../../image/seni1.jpg"
+            src="../../../image/tari1.JPG"
             alt="Galeri Seni 1"
             class="img-fluid rounded shadow"
           />
@@ -379,7 +412,7 @@
           data-aos-delay="100"
         >
           <img
-            src="../../../image/seni2.jpg"
+            src="../../../image/tari2.JPG"
             alt="Galeri Seni 2"
             class="img-fluid rounded shadow"
           />
@@ -390,33 +423,12 @@
           data-aos-delay="200"
         >
           <img
-            src="../../../image/seni3.jpg"
+            src="../../../image/tari4.JPG"
             alt="Galeri Seni 3"
             class="img-fluid rounded shadow"
           />
         </div>
-        <div
-          class="col-6 col-md-4 col-lg-3"
-          data-aos="zoom-in"
-          data-aos-delay="300"
-        >
-          <img
-            src="../../../image/seni4.jpg"
-            alt="Galeri Seni 4"
-            class="img-fluid rounded shadow"
-          />
-        </div>
-        <div
-          class="col-6 col-md-4 col-lg-3"
-          data-aos="zoom-in"
-          data-aos-delay="400"
-        >
-          <img
-            src="../../../image/seni5.jpg"
-            alt="Galeri Seni 5"
-            class="img-fluid rounded shadow"
-          />
-        </div>
+        
       </div>
     </section>
     <!-- End Galeri Ekstrakurikuler Seni Tari -->
@@ -427,30 +439,52 @@
           <div class="col-lg-6 col-md-12 mb-4">
             <h5 class="text-uppercase">SMA Muhammadiyah Makassar</h5>
             <p>
-              Jl. Andi Mappaodang No.13, Bongaya, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90133<br />
+              Jl. Andi Mappaodang No.13, Bongaya, Kec. Tamalate, Kota Makassar,
+              Sulawesi Selatan 90133<br />
               Telepon: (0411) 123456<br />
               Email: smamdismks@gmail.com
-
             </p>
           </div>
           <div class="col-lg-6 col-md-12 mb-4">
             <h5 class="text-uppercase">Link Terkait</h5>
             <ul class="list-unstyled">
               <li>
-                <a href="https://youtu.be/sVeClzC6Dwc?si=ntsSpFMILjaIXH5i" class="text-dark" target="_blank">Youtube</a>
+                <a
+                  href="https://youtu.be/sVeClzC6Dwc?si=ntsSpFMILjaIXH5i"
+                  class="text-dark"
+                  target="_blank"
+                  >Youtube</a
+                >
               </li>
               <li>
-                <a href="https://www.facebook.com/profile.php?id=100091433911905&mibextid=JRoKG" class="text-dark" target="_blank">Facebook</a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100091433911905&mibextid=JRoKG"
+                  class="text-dark"
+                  target="_blank"
+                  >Facebook</a
+                >
               </li>
               <li>
-                <a href="https://www.instagram.com/smamdisofficial?igsh=MW8yZ29pMmZ3dnE0YQ==" class="text-dark" target="_blank">Instagram</a>
+                <a
+                  href="https://www.instagram.com/smamdisofficial?igsh=MW8yZ29pMmZ3dnE0YQ=="
+                  class="text-dark"
+                  target="_blank"
+                  >Instagram</a
+                >
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.1)">
-        © 2025 KKP PLUS FAKULTAS TEKNIK.
+        <a
+          href="https://www.instagram.com/kkp_plus_smas_makassar?igsh=MWExMGpnajl6bDJsaQ=="
+          target="_blank"
+          class="fw-bold text-dark"
+          style="text-decoration: none"
+        >
+        © 2025 KKP PLUS FAKULTAS TEKNIK
+        </a>
       </div>
     </footer>
 
@@ -458,23 +492,82 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 800, once: true });
+
       // Enable Bootstrap dropdown submenu for Kesiswaan
       document.addEventListener("DOMContentLoaded", function () {
         var dropdownSubmenus = document.querySelectorAll(".dropdown-submenu");
+
         dropdownSubmenus.forEach(function (submenu) {
-          submenu.addEventListener("mouseenter", function () {
-            var dropdownMenu = submenu.querySelector(".dropdown-menu");
-            if (dropdownMenu) {
-              dropdownMenu.classList.add("show");
-            }
-          });
-          submenu.addEventListener("mouseleave", function () {
-            var dropdownMenu = submenu.querySelector(".dropdown-menu");
-            if (dropdownMenu) {
-              dropdownMenu.classList.remove("show");
-            }
-          });
+          var dropdownToggle = submenu.querySelector(".dropdown-toggle");
+          var dropdownMenu = submenu.querySelector(".dropdown-menu");
+
+          if (dropdownToggle && dropdownMenu) {
+            // Remove any existing Bootstrap dropdown behavior
+            dropdownToggle.removeAttribute("data-bs-toggle");
+
+            // For desktop - hover functionality
+            submenu.addEventListener("mouseenter", function () {
+              if (window.innerWidth > 991) {
+                // Use Bootstrap's lg breakpoint
+                dropdownMenu.classList.add("show");
+              }
+            });
+
+            submenu.addEventListener("mouseleave", function () {
+              if (window.innerWidth > 991) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+
+            // For mobile and tablet - click functionality
+            dropdownToggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+
+              // Close all other open submenus
+              dropdownSubmenus.forEach(function (otherSubmenu) {
+                if (otherSubmenu !== submenu) {
+                  var otherMenu = otherSubmenu.querySelector(".dropdown-menu");
+                  if (otherMenu) {
+                    otherMenu.classList.remove("show");
+                  }
+                }
+              });
+
+              // Toggle current submenu
+              dropdownMenu.classList.toggle("show");
+            });
+          }
         });
+
+        // Close submenu when clicking outside
+        document.addEventListener("click", function (e) {
+          // Check if click is outside all dropdown submenus
+          var isClickInsideAnyDropdown =
+            e.target.closest(".dropdown-submenu") ||
+            e.target.closest(".dropdown-menu");
+          if (!isClickInsideAnyDropdown) {
+            dropdownSubmenus.forEach(function (submenu) {
+              var dropdownMenu = submenu.querySelector(".dropdown-menu");
+              if (dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+          }
+        });
+
+        // Handle main dropdown close event to also close submenus
+        var mainDropdown = document.getElementById("kesiswaanDropdown");
+        if (mainDropdown) {
+          mainDropdown.addEventListener("hidden.bs.dropdown", function () {
+            dropdownSubmenus.forEach(function (submenu) {
+              var dropdownMenu = submenu.querySelector(".dropdown-menu");
+              if (dropdownMenu) {
+                dropdownMenu.classList.remove("show");
+              }
+            });
+          });
+        }
       });
     </script>
   </body>
